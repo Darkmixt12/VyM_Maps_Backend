@@ -5,6 +5,8 @@ import { UpdateAuthDto } from './dto/update-auth.dto';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register-user.dto';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginResponse } from './interfaces/login-response';
+import { User } from './entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -26,6 +28,18 @@ export class AuthController {
   register(@Body() registerDto: RegisterDto) {
 
     return this.authService.register( registerDto );
+  }
+
+  //! GENERAR NUEVO JW TOKEN //
+  @UseGuards( AuthGuard)
+  @Get( 'check-token' )
+  checkToken( @Request() req: Request): LoginResponse {
+
+    const user = req['user'] as User;
+    return{
+      user,
+      token: this.authService.getJWT({id: user._id})
+    }
   }
 
   @UseGuards( AuthGuard )
