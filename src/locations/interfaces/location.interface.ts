@@ -1,7 +1,7 @@
 export interface Location {
 
 	_id?: string;
-	name: string;
+	title: string;
 	ubicacion: number;
 	provincia: string;
 	description: string;

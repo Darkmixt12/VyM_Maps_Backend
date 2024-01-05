@@ -1,9 +1,9 @@
-import {IsString, MinLength} from 'class-validator'
+import {IsArray, IsString, MinLength} from 'class-validator'
 
 export class CreateLocationDto {
 
 	@IsString()
-	name:string;
+	title:string;
 
 	@IsString()
 	provincia: string;
@@ -14,7 +14,7 @@ export class CreateLocationDto {
 	@IsString()
 	agente: string;
 
-	@IsString()
-	ubicacion: string;
+	@IsArray()
+	lngLat: string[];
 
 }

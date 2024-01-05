@@ -4,14 +4,14 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 export class Location {
 	_id?: string;
 	@Prop( {unique: true, required: true} )
-	name: string;
-	@Prop( {required: true} )
-	ubicacion: string;
+	title: string;
+	@Prop( {type: [String], default: ['']} )
+	lngLat: string[];
 	@Prop({required: true})
 	provincia: string;
-	@Prop( {default: true, minlenght: 6})
+	@Prop( {minlenght: 5})
 	description?: string;
-	@Prop( { required: true})
+	@Prop( {required: true})
 	agente: string;
 
 	

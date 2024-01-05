@@ -26,7 +26,7 @@ export class LocationsService {
   } catch (error){
     if( error.code === 11000 ) {
       
-      throw new BadRequestException( `El nombre ${ createLocationDto.name } ya ha sido ingresado con anterioridad` )
+      throw new BadRequestException( `El nombre ${ createLocationDto.title } ya ha sido ingresado con anterioridad` )
     }
     throw new InternalServerErrorException('Algo terrible ha ocurrido!!')
 }
@@ -35,7 +35,6 @@ export class LocationsService {
   async register( createLocationDto: CreateLocationDto): Promise<CreateLocationDto>{
 
     const location =  await this.create(createLocationDto);
-    console.log({location})
 
     return location
   }
