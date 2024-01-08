@@ -32,6 +32,8 @@ export class LocationsService {
 }
   }
 
+
+
   async register( createLocationDto: CreateLocationDto): Promise<CreateLocationDto>{
 
     const location =  await this.create(createLocationDto);
@@ -39,9 +41,11 @@ export class LocationsService {
     return location
   }
 
-  findAll() {
-    return `This action returns all locations`;
-  }
+
+    findAll(): Promise<Location[]> {
+      return this.locationModel.find()
+    }
+  
 
   findOne(id: number) {
     return `This action returns a #${id} location`;
