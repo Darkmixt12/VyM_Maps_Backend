@@ -3,6 +3,7 @@ import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { LocationsModule } from './locations/locations.module';
+import { GraphicsModule } from './graphics/graphics.module';
 
 
 @Module({
@@ -10,7 +11,8 @@ import { LocationsModule } from './locations/locations.module';
     ConfigModule.forRoot(),
     MongooseModule.forRoot( process.env.MONGO_URI),
     AuthModule,
-    LocationsModule],
+    LocationsModule,
+    GraphicsModule],
   controllers: [],
   providers: [],
 
