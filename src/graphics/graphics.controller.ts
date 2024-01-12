@@ -18,6 +18,11 @@ export class GraphicsController {
     return this.graphicsService.findAll();
   }
 
+  @Get('/date')
+  find() {
+    return this.graphicsService.findAll();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.graphicsService.findOne(+id);
