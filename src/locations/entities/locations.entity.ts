@@ -13,6 +13,10 @@ export class Location {
 	description?: string;
 	@Prop( {required: true})
 	agente: string;
+	@Prop( {required: true})
+	email: string;
+	@Prop( {required: true})
+	telefono: number;
 
 	
 }

@@ -1,4 +1,4 @@
-import {IsArray, IsString, MinLength} from 'class-validator'
+import {IsArray, IsEmail, IsMobilePhone, IsString, MinLength,} from 'class-validator'
 
 export class CreateLocationDto {
 
@@ -16,5 +16,12 @@ export class CreateLocationDto {
 
 	@IsArray()
 	lngLat: string[];
+
+	@IsEmail()
+	email: string;
+
+	@MinLength(8)
+	@IsMobilePhone()
+	telefono: number;
 
 }

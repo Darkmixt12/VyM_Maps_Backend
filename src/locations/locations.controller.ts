@@ -22,9 +22,9 @@ export class LocationsController {
     return this.locationsService.findAll();
   }
 
-  @Get(':id')
+  @Get('place/:id')
   findOne(@Param('id') id: string) {
-    return this.locationsService.findOne(+id);
+    return this.locationsService.findOne(id);
   }
 
   @Patch(':id')

@@ -47,8 +47,9 @@ export class LocationsService {
     }
   
 
-  findOne(id: number) {
-    return `This action returns a #${id} location`;
+  findOne(id: string) {
+    if (id.match(/^[0-9a-fA-F]{24}$/)){
+    return this.locationModel.findById(id)}
   }
 
   update(id: number, updateLocationDto: UpdateLocationDto) {
