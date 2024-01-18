@@ -32,8 +32,8 @@ export class LocationsController {
     return this.locationsService.update(+id, updateLocationDto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
-    return this.locationsService.remove(+id);
+    return this.locationsService.remove(id);
   }
 }

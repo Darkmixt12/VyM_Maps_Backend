@@ -56,7 +56,7 @@ export class LocationsService {
     return `This action updates a #${id} location`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} location`;
+  remove(id: string) {
+    return this.locationModel.findByIdAndDelete(id)
   }
 }
