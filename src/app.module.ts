@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { LocationsModule } from './locations/locations.module';
 import { GraphicsModule } from './graphics/graphics.module';
+import { FilesModule } from './files/files.module';
 
 
 @Module({
@@ -12,7 +13,8 @@ import { GraphicsModule } from './graphics/graphics.module';
     MongooseModule.forRoot( process.env.MONGO_URI),
     AuthModule,
     LocationsModule,
-    GraphicsModule],
+    GraphicsModule,
+    FilesModule],
   controllers: [],
   providers: [],
 
