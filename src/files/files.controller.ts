@@ -5,14 +5,16 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { fileFilter, fileNamer } from './helpers';
 import { diskStorage } from 'multer';
 import { ConfigService } from '@nestjs/config';
+import { v2 as cloudinary } from 'cloudinary';
 
-
+cloudinary.config( process.env.CLOUDINARY_URL)
 @Controller('files')
 
 export class FilesController {
   constructor(
     private readonly configService : ConfigService,
     private readonly filesService: FilesService) {}
+
 
   @Get('location-image/:imageName')
   findProductImage(
@@ -26,6 +28,12 @@ export class FilesController {
   }
 
 
+  @Post('cloudinary')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadImage(@UploadedFile() file: Express.Multer.File) {
+    return this.filesService.uploadFile(file);
+  }
+
   
 
   @Post('location-image')
@@ -35,8 +43,14 @@ export class FilesController {
     storage: diskStorage( {
       destination: './static/locations',
       filename: fileNamer
-    } )
-  }) )
+    }
+     )
+
+     
+
+ }) )
+
+
   uploadLocationImage(  @UploadedFile() file : Express.Multer.File){
     
     if  (!file){
