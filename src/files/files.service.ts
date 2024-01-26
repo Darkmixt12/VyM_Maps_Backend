@@ -33,7 +33,7 @@ export class FilesService {
 		  const uploadStream = cloudinary.uploader.upload_stream( {folder: 'locationsFolder'},
 			(error, result) => {
 			  if (error) return reject(error);
-			  resolve(result );
+			  resolve(result);
 			},
 			
 		  );
