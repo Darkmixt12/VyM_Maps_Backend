@@ -24,4 +24,7 @@ export class CreateLocationDto {
 	@IsMobilePhone()
 	telefono: number;
 
+	@IsString()
+	imagen?: string;
+
 }

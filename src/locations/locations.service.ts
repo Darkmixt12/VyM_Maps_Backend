@@ -52,8 +52,8 @@ export class LocationsService {
     return this.locationModel.findById(id)}
   }
 
-  update(id: number, updateLocationDto: UpdateLocationDto) {
-    return `This action updates a #${id} location`;
+  update(id: string, updateLocationDto: UpdateLocationDto) {
+    return this.locationModel.findByIdAndUpdate(id, updateLocationDto)
   }
 
   remove(id: string) {
