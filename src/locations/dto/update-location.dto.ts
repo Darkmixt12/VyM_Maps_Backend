@@ -34,6 +34,6 @@ export class UpdateLocationDto extends PartialType(CreateLocationDto) {
 
 	@IsString()
 	@IsOptional()
-	imagen?: string;
+	image?: string;
 
 }
