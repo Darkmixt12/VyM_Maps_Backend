@@ -1,6 +1,6 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateLocationDto } from './create-location.dto';
-import { IsArray, IsEmail, IsMobilePhone, IsOptional, IsString, MinLength } from 'class-validator';
+import { IsArray, IsEmail, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class UpdateLocationDto extends PartialType(CreateLocationDto) {
 
@@ -27,9 +27,9 @@ export class UpdateLocationDto extends PartialType(CreateLocationDto) {
 	@IsOptional()
 	email?: string;
 
-	@MinLength(8)
-	@IsMobilePhone()
+
 	@IsOptional()
+	@IsNumber()
 	telefono?: number;
 
 	@IsString()

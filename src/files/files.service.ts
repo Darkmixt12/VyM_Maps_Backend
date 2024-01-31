@@ -41,4 +41,17 @@ export class FilesService {
 		  streamifier.createReadStream(file.buffer).pipe(uploadStream);
 		});
 	  }
+
+
+	deleteFile(id: string){
+		console.log(id);
+		return new Promise<CloudinaryResponse>((resolve, reject) => {
+			cloudinary.uploader.destroy( 'locationsFolder/'+id, 
+			(error, result) => {
+				if( error) return reject(error);
+				resolve(result)
+			}
+		 )
+		})
+	}
 }

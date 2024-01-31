@@ -34,7 +34,10 @@ export class FilesController {
     return this.filesService.uploadFile(file);
   }
 
-  
+  @Post('cloudinary/delete/:id')
+  deleteFile(@Param('id') id: string){
+    return this.filesService.deleteFile(id)
+  }
 
   @Post('location-image')
   @UseInterceptors( FileInterceptor('file', {
