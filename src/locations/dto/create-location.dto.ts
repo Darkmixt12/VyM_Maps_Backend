@@ -25,6 +25,6 @@ export class CreateLocationDto {
 	telefono: number;
 
 	@IsString()
-	imagen?: string;
+	image?: string;
 
 }
