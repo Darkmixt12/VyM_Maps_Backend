@@ -22,10 +22,10 @@ export class LocationsService {
     await newLocation.save()
     const location = newLocation.toJSON();
     return location
-
+    
   } catch (error){
     if( error.code === 11000 ) {
-      
+      console.log(error)
       throw new BadRequestException( `El nombre ${ createLocationDto.title } ya ha sido ingresado con anterioridad` )
     }
     throw new InternalServerErrorException('Algo terrible ha ocurrido!!')

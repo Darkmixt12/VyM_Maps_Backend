@@ -12,6 +12,7 @@ import { JwtService } from '@nestjs/jwt'
 import { JwtPayload } from './interfaces/jwt.payload';
 import { LoginResponse } from './interfaces/login-response';
 import { RegisterDto } from './dto/register-user.dto';
+import { ChangePasswordDto } from './dto/changePassword.dto';
 
 @Injectable()
 export class AuthService {
@@ -82,7 +83,12 @@ export class AuthService {
     }
   }
 
-  
+  async changePassword( changePasswordDto : ChangePasswordDto){
+    console.log(changePasswordDto)
+
+    
+
+  }
 
   findAll(): Promise<User[]> {
     return this.userModel.find()

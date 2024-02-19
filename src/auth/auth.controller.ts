@@ -7,6 +7,7 @@ import { RegisterDto } from './dto/register-user.dto';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginResponse } from './interfaces/login-response';
 import { User } from './entities/user.entity';
+import { ChangePasswordDto } from './dto/changePassword.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -22,6 +23,12 @@ export class AuthController {
   login(@Body() loginDto: LoginDto) {
 
     return this.authService.login( loginDto );
+  }
+
+  @Post('/updatedPassword')
+  changePassword(@Body() changePasswordDto: ChangePasswordDto){
+
+    return this.authService.changePassword( changePasswordDto );
   }
 
   @Post('/register')
