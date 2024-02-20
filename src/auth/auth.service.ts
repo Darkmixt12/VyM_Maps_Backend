@@ -66,7 +66,7 @@ export class AuthService {
     const { email, password} = loginDto;
 
     const user = await this.userModel.findOne({email});
-
+    console.log( user)
     if (!user){
       throw new UnauthorizedException('Credenciales no validas')
     }
@@ -84,10 +84,20 @@ export class AuthService {
   }
 
   async changePassword( changePasswordDto : ChangePasswordDto){
-    console.log(changePasswordDto)
+    const { email, password, newPassword} = changePasswordDto;
+    const userFinded = await this.userModel.findOne({email});
 
+    if(!email) {
+      throw new UnauthorizedException('Por favor desconectese y vuelva a intentarlo')
+    }
+    if(!bcryptjs.compareSync(password, userFinded.password))
+      throw new UnauthorizedException('Contraseña incorrecta')
     
-
+      const Encriptado = bcryptjs.hashSync( newPassword, 10 )
+      const UpdatePassword : UpdateAuthDto = {
+          password : Encriptado,
+      }
+     return this.userModel.findByIdAndUpdate(userFinded._id, UpdatePassword)
   }
 
   findAll(): Promise<User[]> {
