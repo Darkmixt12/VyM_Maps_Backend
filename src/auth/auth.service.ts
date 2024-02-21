@@ -13,6 +13,7 @@ import { JwtPayload } from './interfaces/jwt.payload';
 import { LoginResponse } from './interfaces/login-response';
 import { RegisterDto } from './dto/register-user.dto';
 import { ChangePasswordDto } from './dto/changePassword.dto';
+import { UserDetails } from './dto/userDetails.dto';
 
 @Injectable()
 export class AuthService {
@@ -66,7 +67,7 @@ export class AuthService {
     const { email, password} = loginDto;
 
     const user = await this.userModel.findOne({email});
-    console.log( user)
+ 
     if (!user){
       throw new UnauthorizedException('Credenciales no validas')
     }
@@ -104,8 +105,9 @@ export class AuthService {
     return this.userModel.find()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
+  findOne(id: string) {
+
+    return this.userModel.findById(id)
   }
 
   update(id: number, updateAuthDto: UpdateAuthDto) {

@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginResponse } from './interfaces/login-response';
 import { User } from './entities/user.entity';
 import { ChangePasswordDto } from './dto/changePassword.dto';
+import { UserDetails } from './dto/userDetails.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -28,8 +29,9 @@ export class AuthController {
   @Post('/updatedPassword')
   changePassword(@Body() changePasswordDto: ChangePasswordDto){
 
-    return this.authService.changePassword( changePasswordDto );
+    return this.authService.changePassword(changePasswordDto)
   }
+ 
 
   @Post('/register')
   register(@Body() registerDto: RegisterDto) {
@@ -58,9 +60,9 @@ export class AuthController {
     return this.authService.findAll();
   }
 
-  @Get(':id')
+  @Get('user/:id')
   findOne(@Param('id') id: string) {
-    return this.authService.findOne(+id);
+    return this.authService.findOne(id);
   }
 
   @Patch(':id')
