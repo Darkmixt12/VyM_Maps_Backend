@@ -14,6 +14,7 @@ import { LoginResponse } from './interfaces/login-response';
 import { RegisterDto } from './dto/register-user.dto';
 import { ChangePasswordDto } from './dto/changePassword.dto';
 import { UserDetails } from './dto/userDetails.dto';
+import { UpdateUser } from './dto/update-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -101,6 +102,16 @@ export class AuthService {
      return this.userModel.findByIdAndUpdate(userFinded._id, UpdatePassword)
   }
 
+
+
+
+  async updateUser(id: string, updateUser: UpdateUser ){
+    return this.userModel.findByIdAndUpdate(id, updateUser)
+  }
+
+
+
+  
   findAll(): Promise<User[]> {
     return this.userModel.find()
   }

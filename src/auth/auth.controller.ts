@@ -9,6 +9,7 @@ import { LoginResponse } from './interfaces/login-response';
 import { User } from './entities/user.entity';
 import { ChangePasswordDto } from './dto/changePassword.dto';
 import { UserDetails } from './dto/userDetails.dto';
+import { UpdateUser } from './dto/update-user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -58,6 +59,11 @@ export class AuthController {
 
     // return user;
     return this.authService.findAll();
+  }
+
+  @Patch('/updateUser/:id')
+  updateUser(@Param('id') id: string, @Body() updateUser: UpdateUser) {
+    return this.authService.updateUser(id, updateUser);
   }
 
   @Get('user/:id')
