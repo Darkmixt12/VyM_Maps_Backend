@@ -11,5 +11,8 @@ export class RegisterDto {
 	@IsString()
 	name: string;
 
+	@IsString()
+	image: string;
+
 
 }

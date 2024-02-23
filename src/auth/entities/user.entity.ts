@@ -13,6 +13,8 @@ export class User {
 	isActive: boolean;
 	@Prop( { type: [String], default: ['user']})
 	roles: string[];
+	@Prop( {required: false})
+	image?: string;
 
 	
 }

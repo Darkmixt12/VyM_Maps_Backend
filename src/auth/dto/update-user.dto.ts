@@ -10,5 +10,10 @@ export class UpdateUser {
 	@IsOptional()
 	name?: string;
 
+	@IsString()
+	@IsOptional()
+	image?: string;
+
+
 
 }

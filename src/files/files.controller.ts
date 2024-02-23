@@ -24,6 +24,17 @@ export class FilesController {
     return this.filesService.deleteFile(id)
   }
 
+  @Post('cloudinaryUser')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadImageUser(@UploadedFile() file: Express.Multer.File) {
+    return this.filesService.uploadFileUser(file);
+  }
+
+  @Post('cloudinaryUser/delete/:id')
+  deleteFileUser(@Param('id') id: string){
+    return this.filesService.deleteFileUser(id)
+  }
+
 
 
 }
