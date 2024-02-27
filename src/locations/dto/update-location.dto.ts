@@ -27,7 +27,6 @@ export class UpdateLocationDto extends PartialType(CreateLocationDto) {
 	@IsOptional()
 	email?: string;
 
-
 	@IsOptional()
 	@IsNumber()
 	telefono?: number;
@@ -35,5 +34,29 @@ export class UpdateLocationDto extends PartialType(CreateLocationDto) {
 	@IsString()
 	@IsOptional()
 	image?: string;
+
+	@IsString()
+	@IsOptional()
+	whatsApp?: string;
+
+	@IsString()
+	@IsOptional()
+	driveToLocation?: string
+
+	@IsString()
+	@IsOptional()
+	facebook?: string
+
+	@IsString()
+	@IsOptional()
+	twitter?: string
+
+	@IsString()
+	@IsOptional()
+	instagram?: string
+
+	@IsString()
+	@IsOptional()
+	webPage?: string
 
 }

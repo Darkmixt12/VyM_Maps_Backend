@@ -17,9 +17,20 @@ export class Location {
 	email: string;
 	@Prop( {required: true})
 	telefono: number;
-	@Prop( {required: false}  )
+	@Prop( {required: false})
 	image?: string;
-
+	@Prop( {required: false})
+	whatsApp?: string;
+	@Prop( {required: false})
+	driveToLocation?: string;
+	@Prop( {required: false})
+	facebook?: string;
+	@Prop( {required: false})
+	twitter?: string;
+	@Prop( {required: false})
+	instagram?: string;
+	@Prop( {required: false})
+	webPage?: string;
 	
 }
 

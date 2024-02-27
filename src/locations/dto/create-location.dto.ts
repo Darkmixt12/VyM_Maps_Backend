@@ -28,4 +28,30 @@ export class CreateLocationDto {
 	@IsOptional()
 	image?: string;
 
+	@IsString()
+	@IsOptional()
+	whatsApp?: string;
+
+	@IsString()
+	@IsOptional()
+	driveToLocation?: string
+
+	@IsString()
+	@IsOptional()
+	facebook?: string
+
+	@IsString()
+	@IsOptional()
+	twitter?: string
+
+	@IsString()
+	@IsOptional()
+	instagram?: string
+
+	@IsString()
+	@IsOptional()
+	webPage?: string
+
+
+
 }
