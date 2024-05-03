@@ -1,4 +1,4 @@
-import {IsArray, IsEmail, IsMobilePhone, IsOptional, IsString, MinLength,} from 'class-validator'
+import {IsArray, IsEmail, IsMobilePhone, IsNumber, IsOptional, IsString, MaxLength, MinLength,} from 'class-validator'
 
 export class CreateLocationDto {
 
@@ -21,7 +21,8 @@ export class CreateLocationDto {
 	email: string;
 
 	@MinLength(8)
-	@IsMobilePhone()
+	@MaxLength(8)
+	@IsNumber()
 	telefono: number;
 
 	@IsString()
