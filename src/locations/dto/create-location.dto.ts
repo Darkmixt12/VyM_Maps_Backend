@@ -20,10 +20,10 @@ export class CreateLocationDto {
 	@IsEmail()
 	email: string;
 
-	@MinLength(8)
+	@IsMobilePhone()
 	@MaxLength(8)
-	@IsNumber()
-	telefono: number;
+	@MinLength(8)
+	telefono?: string;
 
 	@IsString()
 	@IsOptional()

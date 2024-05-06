@@ -16,7 +16,7 @@ export class Location {
 	@Prop( {required: true})
 	email: string;
 	@Prop( {required: true})
-	telefono: number;
+	telefono: string;
 	@Prop( {required: false})
 	image?: string;
 	@Prop( {required: false})
